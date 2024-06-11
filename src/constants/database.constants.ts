@@ -1,0 +1,7 @@
+export const DATABASE = {
+    HOST: 'DB_HOST',
+    PORT: 'DB_PORT',
+    USER: 'POSTGRES_USER',
+    PASSWORD: 'POSTGRES_PASSWORD',
+    NAME: 'POSTGRES_DB',
+};
