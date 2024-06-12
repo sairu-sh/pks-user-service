@@ -1,12 +1,22 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtModule } from '@nestjs/jwt';
-import { Role } from '../role/entities';
+import { UserGroupTypesController } from './usergrouptype.controller';
+import { UserGroupTypeService } from './usergrouptype.service';
+import { IUserGroupTypeService } from './interfaces';
 import { UserGroupType } from './entities';
-import { User } from '../user/entities';
+import { RolesModule } from '../role/roles.module';
+import { UserGroup } from '../usergroup/entities';
 import { Client } from '../client/entities';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([UserGroupType, User, Client, Role]), JwtModule],
+    imports: [TypeOrmModule.forFeature([UserGroupType, UserGroup, Client]), RolesModule, JwtModule],
+    controllers: [UserGroupTypesController],
+    providers: [
+        {
+            provide: IUserGroupTypeService,
+            useClass: UserGroupTypeService,
+        },
+    ],
 })
-export class RolesModule {}
+export class UserModule {}
