@@ -56,6 +56,6 @@ export class UserGroup {
     roles: Role[];
 
     @ManyToOne(() => UserGroupType, (userGroupType) => userGroupType.id)
-    @JoinColumn()
+    @JoinColumn({ name: 'user_group_type_id' })
     userGroupTypeId: UserGroupType;
 }

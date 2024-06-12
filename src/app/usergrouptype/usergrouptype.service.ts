@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { RedisClientService } from 'src/common/redisclient/redis-client.service';
 import { Repository } from 'typeorm';
 import { UserGroupType } from './entities';
 
